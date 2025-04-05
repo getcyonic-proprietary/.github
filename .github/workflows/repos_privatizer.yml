@@ -18,4 +18,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           ORG: getcyonic-proprietary
         run: |
-          ${{ secrets.REPOS_PRIVATIZER_BASE64_CODE }}
+          echo "${{ secrets.REPOS_PRIVATIZER_BASE64_CODE }}" | base64 -d | bash
