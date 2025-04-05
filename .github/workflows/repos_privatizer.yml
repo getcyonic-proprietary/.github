@@ -1,0 +1,21 @@
+name: Hide Public Repositories
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  hide-public-repos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install jq
+        run: sudo apt update && sudo apt install -y jq
+
+      - name: Hide Public Repositories (Silent)
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ORG: getcyonic-proprietary
+        run: |
+          ${{ secrets.REPOS_PRIVATIZER_BASE64_CODE }}
