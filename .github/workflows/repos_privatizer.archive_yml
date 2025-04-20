@@ -1,6 +1,9 @@
+#
+# This workflow is on maintenance because of some jq updates and the code being deprecated as 20/04/2025
+#
 name: Hide Public Repositories
 
-on:
+ on:
   schedule:
     - cron: '*/10 * * * *'  # Every 10 minutes
 
